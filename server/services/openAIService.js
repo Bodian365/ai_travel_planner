@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import {
   getRefineSystemPrompt,
   getTripSystemPrompt,
+  userContent,
 } from "../prompts/prompts.js";
 
 // Ініціалізуємо клієнта OpenAI
@@ -58,18 +59,14 @@ export const refineTripPlan = async (currentPlan, feedback) => {
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-5.4-mini",
+
       response_format: { type: "json_object" },
       messages: [
         { role: "system", content: systemPrompt },
-        // Передаємо поточний план як попередню відповідь самого ШІ
-        { role: "assistant", content: JSON.stringify(currentPlan) },
-        // Передаємо нове побажання користувача
-        {
-          role: "user",
-          content: `Ось мої зміни до цього маршруту: ${feedback}. Будь ласка, онови JSON.`,
-        },
+        { role: "user", content: userContent(currentPlan, feedback) },
       ],
-      temperature: 0.6, // Трохи нижча температура, щоб ШІ чітко тримався контексту
+      // Знижуємо температуру. Для сухих структурних змін (порахувати, видалити з масиву)
+      temperature: 0.3,
     });
 
     return JSON.parse(response.choices[0].message.content);

@@ -2,11 +2,24 @@
 
 @import "tailwindcss";
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: "Inter", sans-serif;
+  background-color: #f3f4f6;
 }
 
 :root {
   --header-color: #191f7d;
   --light-header-color: #e8e9f2;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* для Chrome, Safari та Opera */
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* для IE та Edge */
+  scrollbar-width: none; /* для Firefox */
 }

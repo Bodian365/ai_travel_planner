@@ -1,16 +1,17 @@
 import uaFlag from "../assets/ua-flag.png";
 import enFlag from "../assets/en-flag.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="flex items-center bg-white mx-auto  py-5  px-75 shadow">
+    <header className="flex items-center bg-white mx-auto mb-10 py-5  px-40 shadow-sm">
       <h1 className="mr-auto text-2xl text-(--header-color) font-bold">
         AI Travel Planner🚀
       </h1>
       <nav className="flex items-center gap-6">
         <ul className="flex gap-3 ">
-          <NavLink>🗺️ Plan Trip</NavLink>
-          <NavLink>📜 History</NavLink>
+          <NavLink linkTo={"/"}>🗺️ Plan Trip</NavLink>
+          <NavLink linkTo={"/history"}>📜 History</NavLink>
         </ul>
         <ul className="flex gap-2">
           <LangButton>
@@ -28,15 +29,15 @@ function Header() {
   );
 }
 
-function NavLink({ children }) {
+function NavLink({ children, linkTo }) {
   return (
     <li>
-      <a
+      <Link
+        to={linkTo}
         className="border-2  border-(--header-color) transition-colors rounded-xl px-3 py-2 font-medium hover:bg-(--light-header-color) cursor-pointer "
-        href="#"
       >
         {children}
-      </a>
+      </Link>
     </li>
   );
 }

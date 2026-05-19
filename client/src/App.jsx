@@ -1,14 +1,17 @@
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import History from "./pages/History";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <div className="bg-gray-100">
-        <Header />
-        <Home />
-      </div>
-    </>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/history" element={<History />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
