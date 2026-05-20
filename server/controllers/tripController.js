@@ -11,6 +11,7 @@ export const generateTrip = async (req, res) => {
       currency,
       travelers,
       interests,
+      lng,
     } = req.body;
 
     if (!destination || !startDate || !endDate || !currency) {
@@ -27,6 +28,7 @@ export const generateTrip = async (req, res) => {
       currency,
       travelers,
       interests,
+      lng,
     };
     const generatedPlan = await generateTripPlan(tripData);
 
