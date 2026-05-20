@@ -1,0 +1,32 @@
+{
+  "translation": {
+    "historyTitle": "Ваша історія подорожей",
+    "noTrips": "Маршрутів ще немає.",
+    "createButton": "Створити новий маршрут",
+    "viewing": "Перегляд",
+    "homeButton": "План подорожі",
+    "historyButton": "Історія",
+    "localCurrency": "Місцева валюта",
+    "expensesGraph": "Орієнтовні витрати",
+    "curConversions": "Конвертація валют",
+    "headerForm": "Почніть планувати свою пригоду",
+    "destinationTitle": "Місце призначення",
+    "startDate": "Дата початку",
+    "endDate": "Дата завершення",
+    "numTravelers": "Кількість мандрівників",
+    "totalBudget": "Загальний бюджет",
+    "interests": "Інтереси",
+    "museums": "Музеї",
+    "gastronomy": "Гастрономія",
+    "nature": "Природа",
+    "architecture": "Архітектура",
+    "ownInterests": "Введіть власні інтереси та натисніть Enter...",
+    "updateTrip": "Хочете щось змінити в маршруті?",
+    "loaderMessage": "ШІ створює ваш ідеальний маршрут...",
+    "day": "День",
+    "generateRoute": "Створити маршрут",
+    "travelers_one": "{{count}} особа",
+    "travelers_few": "{{count}} особи",
+    "travelers_other": "{{count}} осіб"
+  }
+}

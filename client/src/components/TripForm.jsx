@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function TripForm({ onSubmit }) {
+  const { t } = useTranslation();
   const predefinedInterests = [
-    "Museums",
-    "Gastronomy",
-    "Nature",
-    "Architecture",
+    t("museums"),
+    t("gastronomy"),
+    t("nature"),
+    t("architecture"),
   ];
 
-  // 1. Створюємо стейти для всіх полей форми
   const [destination, setDestination] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -43,15 +44,13 @@ function TripForm({ onSubmit }) {
 
   // Головна функція відправки форми
   const handleFormSubmit = (e) => {
-    e.preventDefault(); // Зупиняємо перезавантаження сторінки браузером
+    e.preventDefault();
 
-    // Валідація: перевіряємо, чи ввів користувач хоча б куди він їде
     if (!destination.trim()) {
       alert("Please enter a destination!");
       return;
     }
 
-    // Пакуємо всі стейти в один чистий об'єкт
     const formData = {
       destination: destination.trim(),
       startDate,
@@ -62,7 +61,6 @@ function TripForm({ onSubmit }) {
       interests: selectedInterests,
     };
 
-    // Відправляємо цей об'єкт у Home.jsx
     onSubmit(formData);
   };
 
@@ -71,14 +69,15 @@ function TripForm({ onSubmit }) {
   return (
     <div className="col-span-3 px-7 py-5 rounded-xl bg-white shadow-sm">
       <h2 className="text-xl font-bold mb-4 text-slate-800">
-        Start Planning Your Adventure
+        {t("headerForm")}
       </h2>
 
-      {/* Прив'язуємо наш обробник до onSubmit форми */}
       <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
         {/* Destination */}
         <label className="flex flex-col gap-1">
-          <span className="font-medium text-slate-700">Destination</span>
+          <span className="font-medium text-slate-700">
+            {t("destinationTitle")}
+          </span>
           <input
             className="border border-indigo-200 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             placeholder="Paris, France"
@@ -92,7 +91,7 @@ function TripForm({ onSubmit }) {
         {/* Date */}
         <div className="grid grid-cols-2 gap-4">
           <label className="flex flex-col gap-1">
-            <span className="font-medium text-slate-700">Start Date</span>
+            <span className="font-medium text-slate-700">{t("startDate")}</span>
             <input
               className="border border-indigo-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
               type="date"
@@ -103,11 +102,11 @@ function TripForm({ onSubmit }) {
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="font-medium text-slate-700">End Date</span>
+            <span className="font-medium text-slate-700">{t("endDate")}</span>
             <input
               className="border border-indigo-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
               type="date"
-              min={startDate || today} // Дата кінця не може бути раніше за дату початку
+              min={startDate || today}
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               required
@@ -119,7 +118,7 @@ function TripForm({ onSubmit }) {
           {/* Num of Travelers */}
           <label className="flex flex-col gap-1">
             <span className="font-medium text-slate-700">
-              Number of travelers
+              {t("numTravelers")}
             </span>
             <input
               className="border border-indigo-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -133,7 +132,9 @@ function TripForm({ onSubmit }) {
 
           <div className="flex flex-col gap-1">
             {/* Total Budget */}
-            <span className="font-medium text-slate-700">Total Budget</span>
+            <span className="font-medium text-slate-700">
+              {t("totalBudget")}
+            </span>
             <div className="flex gap-2">
               <input
                 className="w-2/3 border border-indigo-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -157,9 +158,8 @@ function TripForm({ onSubmit }) {
           </div>
         </div>
 
-        {/* Секція інтересів залишається твоєю рідною та робочою */}
         <div className="flex flex-col gap-2 mt-2">
-          <span className="font-medium text-slate-700">Interests</span>
+          <span className="font-medium text-slate-700">{t("interests")}</span>
 
           <div className="flex flex-wrap gap-2">
             {[...new Set([...predefinedInterests, ...selectedInterests])].map(
@@ -189,7 +189,7 @@ function TripForm({ onSubmit }) {
             value={customInterest}
             onChange={(e) => setCustomInterest(e.target.value)}
             onKeyDown={handleAddCustomInterest}
-            placeholder="Type your own interest and press Enter..."
+            placeholder={t("ownInterests")}
             className="mt-2 border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
@@ -198,7 +198,7 @@ function TripForm({ onSubmit }) {
           type="submit"
           className="mt-4 w-full bg-[#3730A3] hover:bg-indigo-800 text-white font-medium py-3 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
         >
-          ✨ Generate Route
+          ✨ {t("generateRoute")}
         </button>
       </form>
     </div>

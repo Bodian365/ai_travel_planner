@@ -3,6 +3,8 @@ import {
   ArrowsCounterClockwiseIcon,
   PaperPlaneTiltIcon,
 } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 function RouteTimeLine({ itinerary, onRouteUpdate }) {
   return (
@@ -27,6 +29,7 @@ function RouteTimeLine({ itinerary, onRouteUpdate }) {
 export default RouteTimeLine;
 
 function TimelineDay({ dayNumber, activities = [], isLast = false }) {
+  const { t } = useTranslation();
   return (
     <div className="relative flex gap-6 pb-6 last:pb-0">
       <div className="flex flex-col items-center w-6 shrink-0">
@@ -39,7 +42,7 @@ function TimelineDay({ dayNumber, activities = [], isLast = false }) {
 
       <div className="grow bg-white p-5 rounded-2xl border border-slate-100 shadow-sm relative before:content-[''] before:absolute before:top-4 before:-left-2 before:w-4 before:h-4 before:bg-white before:border-l before:border-b before:border-slate-100 before:rotate-45">
         <h4 className="font-bold text-lg text-slate-800 mb-3">
-          Day {dayNumber}
+          {t("day")} {dayNumber}
         </h4>
 
         <ul className="flex flex-col gap-2 pl-2">
@@ -65,7 +68,6 @@ function RouteChatInput({ onRouteUpdate }) {
     e.preventDefault();
     if (!prompt.trim()) return;
 
-    console.log("Користувач хоче змінити:", prompt);
     onRouteUpdate(prompt);
     setPrompt("");
   };
@@ -84,7 +86,7 @@ function RouteChatInput({ onRouteUpdate }) {
           type="text"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Want to change something in the route?"
+          placeholder={t("updateTrip")}
           className="grow bg-transparent text-slate-700 font-medium placeholder:text-slate-400 text-base focus:outline-none"
         />
 

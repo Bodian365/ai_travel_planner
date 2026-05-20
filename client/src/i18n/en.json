@@ -1,0 +1,31 @@
+{
+  "translation": {
+    "historyTitle": "Your Travel History",
+    "noTrips": "No trips planned yet.",
+    "createButton": "Create new route",
+    "viewing": "Viewing",
+    "homeButton": "Plan Trip",
+    "historyButton": "History",
+    "localCurrency": "Local Currency",
+    "expensesGraph": "Estimated Expenses",
+    "curConversions": "Currency Conversions",
+    "headerForm": "Start Planning Your Adventure",
+    "destinationTitle": "Destination",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "numTravelers": "Number of Travelers",
+    "totalBudget": "Total Budget",
+    "interests": "Interests",
+    "museums": "Museums",
+    "gastronomy": "Gastronomy",
+    "nature": "Nature",
+    "architecture": "Architecture",
+    "ownInterests": "Type your own interests and press Enter...",
+    "updateTrip": "Want to change something in the route?",
+    "loaderMessage": "AI creates your perfect route...",
+    "day": "Day",
+    "travelers_one": "{{count}} person",
+    "travelers_other": "{{count}} people",
+    "generateRoute": "Generate Route"
+  }
+}

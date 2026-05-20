@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   CategoryScale,
@@ -19,6 +20,7 @@ ChartJS.register(
 );
 
 function EstimatedExpenses({ budgetDetails }) {
+  const { t } = useTranslation();
   const labels = Object.keys(budgetDetails).map((category) => category);
   const amounts = Object.entries(budgetDetails).map((item) =>
     item[1].slice(0, -3),
@@ -28,7 +30,6 @@ function EstimatedExpenses({ budgetDetails }) {
     labels: labels,
     datasets: [
       {
-        label: "(USD)",
         data: amounts,
         backgroundColor: "rgba(79, 70, 229, 0.7)",
         borderColor: "rgb(79, 70, 229)",
@@ -69,7 +70,7 @@ function EstimatedExpenses({ budgetDetails }) {
   return (
     <div className="bg-white px-5 py-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col">
       <h3 className="text-xl font-bold text-slate-800 flex items-center gap-1 mb-5">
-        <span>📊</span> Estimated Expenses
+        <span>📊</span> {t("expensesGraph")}
       </h3>
 
       <div className="h-full w-full">

@@ -1,7 +1,7 @@
-const API_BASE_URL = "http://localhost:3001/api"; // або твій URL бекенду
+const API_BASE_URL = "http://localhost:3001/api";
 
 export const ApiService = {
-  // 1. Перша генерація маршруту на основі форми
+  // Перша генерація маршруту на основі форми
   async generateTrip(formData) {
     try {
       //formData: { destination, startDate, endDate, travelers, budget, currency, interests: [] }
@@ -21,7 +21,7 @@ export const ApiService = {
     }
   },
 
-  // 2. Перегенерація (редагування через твій плаваючий інпут-чат)
+  // Перегенерація (редагування через інпут-чат)
   async updateTripRoute(currentRoute, changePrompt) {
     try {
       console.log(currentRoute, changePrompt);
