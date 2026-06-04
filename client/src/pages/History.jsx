@@ -3,6 +3,7 @@ import { StorageService } from "../services/storage";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 
 function History() {
   const { t } = useTranslation();
@@ -19,6 +20,7 @@ function History() {
   const handleDelete = (id) => {
     StorageService.deleteTrip(id);
     setTripHistory((prev) => prev.filter((trip) => trip.id !== id));
+    toast.success(t("removingFromHistory"));
   };
 
   return (

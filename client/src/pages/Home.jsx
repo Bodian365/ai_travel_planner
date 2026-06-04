@@ -6,6 +6,7 @@ import { ApiService } from "../services/api";
 import { StorageService } from "../services/storage";
 import Loader from "../components/Loader";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 
 function Home() {
   const { t, i18n } = useTranslation();
@@ -45,9 +46,10 @@ function Home() {
       const savedTrip = StorageService.saveTrip(result);
       StorageService.setActiveTrip(savedTrip);
       setTripResult(savedTrip);
-      console.log("first data:", result);
+      toast.success(t("successCreateMessage"));
     } catch (error) {
       console.error("Помилка генерації подорожі:", error);
+      toast.error(t("ErrorMessage"));
     } finally {
       setIsLoading(false);
     }
@@ -70,7 +72,9 @@ function Home() {
       const savedTrip = StorageService.saveTrip(updatedTrip);
       StorageService.setActiveTrip(savedTrip);
       setTripResult(savedTrip);
+      toast.success(t("successRefineMessage"));
     } catch (error) {
+      toast.error(t("ErrorMessage"));
       console.error("Помилка при оновленні маршруту:", error);
     } finally {
       setIsLoading(false);

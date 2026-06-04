@@ -27,6 +27,10 @@
     "generateRoute": "Створити маршрут",
     "travelers_one": "{{count}} особа",
     "travelers_few": "{{count}} особи",
-    "travelers_other": "{{count}} осіб"
+    "travelers_other": "{{count}} осіб",
+    "successCreateMessage": "Створення маршруту успішне!",
+    "successRefineMessage": "Оновлення маршруту успішне!",
+    "ErrorMessage": "Щось пішло не так. Спробуйте пізніше.",
+    "removingFromHistory": "Елемент успішно видалено"
   }
 }

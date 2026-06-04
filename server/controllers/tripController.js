@@ -1,4 +1,4 @@
-import { generateTripPlan, refineTripPlan } from "../services/openaiService.js";
+import { generateTripPlan, refineTripPlan } from "../services/openAIService.js";
 
 // 1. Перша генерація
 export const generateTrip = async (req, res) => {

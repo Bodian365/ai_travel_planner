@@ -26,6 +26,10 @@
     "day": "Day",
     "travelers_one": "{{count}} person",
     "travelers_other": "{{count}} people",
-    "generateRoute": "Generate Route"
+    "generateRoute": "Generate Route",
+    "successCreateMessage": "Route creation successful!",
+    "successRefineMessage": "Route update successful!",
+    "ErrorMessage": "Something went wrong. Please try again later.",
+    "removingFromHistory": "Item deleted successfully"
   }
 }
